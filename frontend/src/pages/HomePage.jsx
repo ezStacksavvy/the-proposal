@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import HeroSection from '../components/HeroSection';
 import LoveMessage from '../components/LoveMessage';
 import FloatingHearts from '../components/FloatingHearts';
 import FinalQuestion from '../components/FinalQuestion';
 import ResponseModal from '../components/ResponseModal';
+import MusicPlayer from '../components/MusicPlayer';
 
 const HomePage = () => {
   const [showQuestion, setShowQuestion] = useState(false);
