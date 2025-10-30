@@ -30,6 +30,9 @@ const HomePage = () => {
       {/* Floating hearts background */}
       <FloatingHearts />
       
+      {/* Music player */}
+      <MusicPlayer />
+      
       {/* Main content */}
       <div className="relative z-10">
         <HeroSection />
