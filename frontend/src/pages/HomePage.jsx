@@ -64,7 +64,7 @@ const HomePage = () => {
         <div className={`transition-all duration-1000 ${
           showQuestion ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <FinalQuestion onResponse={handleResponse} />
+          <FinalQuestion onResponse={handleResponse} isLoading={isSaving} />
         </div>
       </div>
 
