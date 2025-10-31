@@ -3,7 +3,7 @@ import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Heart, Sparkles, Loader2 } from 'lucide-react';
 
-const FinalQuestion = ({ onResponse }) => {
+const FinalQuestion = ({ onResponse, isLoading }) => {
   const [hoveredButton, setHoveredButton] = useState(null);
 
   return (
