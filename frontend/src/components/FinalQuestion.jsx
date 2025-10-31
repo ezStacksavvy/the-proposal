@@ -39,7 +39,8 @@ const FinalQuestion = ({ onResponse, isLoading }) => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
               <Button
                 size="lg"
-                className="group relative px-12 py-7 text-lg font-semibold bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 overflow-hidden"
+                disabled={isLoading}
+                className="group relative px-12 py-7 text-lg font-semibold bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
                 onMouseEnter={() => setHoveredButton('yes')}
                 onMouseLeave={() => setHoveredButton(null)}
                 onClick={() => onResponse('yes')}
@@ -48,26 +49,43 @@ const FinalQuestion = ({ onResponse, isLoading }) => {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-glow to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <span className="relative flex items-center gap-2">
-                  <Heart className={`w-5 h-5 fill-current transition-transform duration-500 ${
-                    hoveredButton === 'yes' ? 'scale-125' : 'scale-100'
-                  }`} />
-                  Yes, Forever!
-                  <Heart className={`w-5 h-5 fill-current transition-transform duration-500 ${
-                    hoveredButton === 'yes' ? 'scale-125' : 'scale-100'
-                  }`} />
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Saving...
+                    </>
+                  ) : (
+                    <>
+                      <Heart className={`w-5 h-5 fill-current transition-transform duration-500 ${
+                        hoveredButton === 'yes' ? 'scale-125' : 'scale-100'
+                      }`} />
+                      Yes, Forever!
+                      <Heart className={`w-5 h-5 fill-current transition-transform duration-500 ${
+                        hoveredButton === 'yes' ? 'scale-125' : 'scale-100'
+                      }`} />
+                    </>
+                  )}
                 </span>
               </Button>
               
               <Button
                 size="lg"
                 variant="outline"
-                className="px-12 py-7 text-lg font-semibold border-2 border-primary/40 text-foreground hover:bg-primary/5 hover:border-primary/60 rounded-full transition-all duration-500 hover:scale-105"
+                disabled={isLoading}
+                className="px-12 py-7 text-lg font-semibold border-2 border-primary/40 text-foreground hover:bg-primary/5 hover:border-primary/60 rounded-full transition-all duration-500 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                 onMouseEnter={() => setHoveredButton('maybe')}
                 onMouseLeave={() => setHoveredButton(null)}
                 onClick={() => onResponse('maybe')}
               >
                 <span className="flex items-center gap-2">
-                  I need time...
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Saving...
+                    </>
+                  ) : (
+                    'I need time...'
+                  )}
                 </span>
               </Button>
             </div>
