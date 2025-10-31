@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
-import { Heart, Sparkles } from 'lucide-react';
+import { Heart, Sparkles, Loader2 } from 'lucide-react';
 
 const FinalQuestion = ({ onResponse }) => {
   const [hoveredButton, setHoveredButton] = useState(null);
